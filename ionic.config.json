@@ -1,0 +1,7 @@
+{
+  "name": "CriticalRoll-ng",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

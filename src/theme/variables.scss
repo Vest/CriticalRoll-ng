@@ -1,2 +1,17 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+
+$font-path: "../assets/fonts";
+
+$colors: (
+  primary: #52b3d9,
+  critical: #90c695,
+  fumble: #e74c3c,
+  light: #f4f4f4
+);
+
+@import "ionic.theme.default";
+@import "ionicons";
+@import "roboto";
+@import "noto-sans";
+@import "icons";

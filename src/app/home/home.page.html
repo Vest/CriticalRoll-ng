@@ -2,24 +2,25 @@
   <ion-menu contentId="content">
     <ion-header>
       <ion-toolbar>
-        <ion-title class="menu-title" (click)="openRootPage()">
+        <ion-title class="menu-title" (click)="openRootPage()" (keydown)="openRootPage()">
           <ion-icon class="app-icon-d20s"></ion-icon>
           <span class="app-title">CriticalRoll-ng</span>
         </ion-title>
       </ion-toolbar>
     </ion-header>
 
+    <ion-content id="content">
+      <ion-list>
+        <ion-item>
+          <ion-button menuClose>
+            <ion-icon ></ion-icon>
+            <span class="menu-title">p.title</span>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-content>
   </ion-menu>
 
 
-  <ion-content  id="content">
-    <ion-list>
-      <ion-item>
-        <ion-button>
-          <ion-icon ></ion-icon>
-          <span class="menu-title">p.title</span>
-        </ion-button>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+
 </ion-split-pane>

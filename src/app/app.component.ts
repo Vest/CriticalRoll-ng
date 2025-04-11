@@ -12,7 +12,7 @@ import {
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
-  imports: [IonApp, IonRouterOutlet, IonSplitPane, IonMenu, IonHeader, IonTitle, IonToolbar, IonIcon, IonContent, IonList, IonNav],
+  imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent {
   constructor() {}

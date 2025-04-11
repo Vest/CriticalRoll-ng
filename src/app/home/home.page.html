@@ -9,10 +9,10 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content id="content">
+    <ion-content>
       <ion-list>
-        <ion-item>
-          <ion-button menuClose>
+        <ion-item *ngFor="let p of pages">
+          <ion-button>
             <ion-icon ></ion-icon>
             <span class="menu-title">p.title</span>
           </ion-button>
@@ -21,6 +21,5 @@
     </ion-content>
   </ion-menu>
 
-
-
+  <ion-nav [root]="rootPage" id="content" main [swipeGesture]="false"></ion-nav>
 </ion-split-pane>

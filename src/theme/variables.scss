@@ -10,8 +10,8 @@ $colors: (
   light: #f4f4f4
 );
 
-@import "ionic.theme.default";
-@import "ionicons";
-@import "roboto";
-@import "noto-sans";
-@import "icons";
+// @use "ionic.theme.default";
+// @use "ionicons";
+// @use "roboto";
+// @use "noto-sans";
+@use "icons";

@@ -10,7 +10,7 @@ import {
   IonToolbar
 } from "@ionic/angular/standalone";
 
-// import {RuletipsService} from "../../providers/ruletips-service";
+import {RuletipsService} from "../../providers/ruletips-service";
 
 @Component({
   selector: 'app-glossary',

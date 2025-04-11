@@ -13,7 +13,7 @@ import {
   IonTitle,
   IonToolbar, MenuController
 } from '@ionic/angular/standalone';
-import {GlossaryPage} from "../pages/glossary/glossary";
+import {GlossaryPage} from "../../pages/glossary/glossary";
 
 @Component({
   selector: 'app-home',

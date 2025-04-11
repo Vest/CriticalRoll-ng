@@ -1,5 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {Component} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {
   IonButton,
   IonContent,
@@ -7,28 +7,34 @@ import {
   IonIcon,
   IonItem,
   IonList,
-  IonMenu, IonMenuToggle,
+  IonMenu,
   IonNav,
   IonSplitPane,
   IonTitle,
-  IonToolbar
+  IonToolbar, MenuController
 } from '@ionic/angular/standalone';
+import {GlossaryPage} from "../pages/glossary/glossary";
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonList, IonNav, IonMenu, IonSplitPane, IonButton, IonItem, IonMenuToggle],
+  imports: [CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonList, IonNav, IonMenu, IonSplitPane, IonButton, IonItem],
 })
 export class HomePage {
   rootPage: undefined;
   pages: Array<{ title: string, component: any, icon: string }>;
   content = "Test";
 
-  constructor() {
+  @ViewChild(IonNav)
+  nav!: IonNav;
+
+  constructor(
+    public menu: MenuController,
+  ) {
     this.pages = [
       {title: 'Help', component: null, icon: 'app-icon-help'},
-      {title: 'Glossary', component: null, icon: 'app-icon-glossary'},
+      {title: 'Glossary', component: GlossaryPage, icon: 'app-icon-glossary'},
       {title: 'Settings', component: null, icon: 'app-icon-settings'},
       {title: 'License', component: null, icon: 'app-icon-license'}
     ];
@@ -38,7 +44,8 @@ export class HomePage {
     alert(1);
   }
 
-  openPage(p: any) {
-
+  openPage(page: any) {
+    this.menu.close();
+    this.nav.push(page.component);
   }
 }

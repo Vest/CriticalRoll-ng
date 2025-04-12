@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {Storage} from "@ionic/storage-angular";
-import "rxjs/add/operator/map";
+import { map } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class SettingsService {
 
   private currentLanguage!: string;
@@ -18,7 +18,7 @@ export class SettingsService {
     {'tag': 'dnd3', 'name': 'Dungeon and Dragons 3rd Ed.'}
   ];
 
-  constructor(private storage: Storage) {
+  constructor(private readonly storage: Storage) {
     this.storage.create().then(() => {
         this.storage.get('language').then((language) => {
           if (language != null) {

@@ -1,12 +1,12 @@
 import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import "rxjs/add/operator/map";
+import { map } from 'rxjs/operators';
 import {SettingsService} from "./settings-service";
 
 @Injectable({providedIn: 'root'})
 export class EffectsService {
 
-  private readonly http = inject(HttpClient);
+  private http = inject(HttpClient);
 
   private drawnEffects: any = [];
 

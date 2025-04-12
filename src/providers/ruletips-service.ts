@@ -1,6 +1,5 @@
 import {inject, Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
-import { map } from 'rxjs/operators';
 import {SettingsService} from "./settings-service";
 
 @Injectable({providedIn: 'root'})
@@ -12,21 +11,20 @@ export class RuletipsService {
   private readonly languanges: string[] = ['en', 'es'];
   private readonly systems: string[] = ['pfrpg', 'dnd3', 'dnd5'];
 
-  private ruletips: { [key: string]: { [key: string]: object; }; } = {};
+  private ruletips: { [key: string]: { [key: string]: RuleTip[]; }; } = {};
 
   constructor() {
-
     this.languanges.forEach(language => {
       this.ruletips[language] = {};
       this.systems.forEach(system => {
-        this.ruletips[language][system] = {};
+        this.ruletips[language][system] = [];
         this.loadFromJson(language, system);
       });
     });
   }
 
   private loadFromJson(language: string, system: string) {
-    this.http.get('assets/json/' + language + '/' + system + '/ruletips.json')
+    this.http.get<RuleTip[]>(`assets/json/${language}/${system}/ruletips.json`)
       .subscribe(data => {
         this.ruletips[language][system] = data;
       });
@@ -45,9 +43,20 @@ export class RuletipsService {
      */
   }
 
-  getAll() {
-    let ruletips = this.ruletips[this.settingsService.getLanguage()][this.settingsService.getSystem()];
-   // return Object.keys(ruletips).map(key => ruletips[key]);
-    return [];
+  getAll() : RuleTip[] {
+    const language = this.settingsService.getLanguage();
+    const system = this.settingsService.getSystem();
+    return this.ruletips[language][system];
   }
+}
+
+export interface Tag {
+  tag: string;
+  text: string;
+  title: string;
+}
+
+export interface RuleTip {
+  name: string;
+  ruletips: Tag[];
 }

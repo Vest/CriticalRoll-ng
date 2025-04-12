@@ -1,6 +1,5 @@
 import {Injectable} from "@angular/core";
 import {Storage} from "@ionic/storage-angular";
-import { map } from 'rxjs/operators';
 
 @Injectable({providedIn: 'root'})
 export class SettingsService {
